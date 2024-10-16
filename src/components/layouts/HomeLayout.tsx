@@ -7,19 +7,20 @@ interface HomeLayoutProps {
   children: ReactNode;
 }
 
-export const HomeLayout = ({ children, position }) => {
+export const HomeLayout = ({ children }: HomeLayoutProps) => {
   const email_address = process.env.REACT_APP_EMAIL_ADDRESS;
 
   return (
-    <div className="relative h-[500px]">
-      <div className="absolute z-0">
+    <div className="relative overflow-x-hidden">
+      <div className="relative z-0 w-full">
         <img
           src={gray}
           alt="background"
-          className="h-full"
+          className="absolute w-full h-[690px] object-cover rounded-b-3xl"
           style={{ userSelect: "none", pointerEvents: "none" }}
         />
       </div>
+      
 
       <header className="py-10 px-8 md:px-20 ">
         <div className="relative flex justify-between z-10">
@@ -49,16 +50,29 @@ export const HomeLayout = ({ children, position }) => {
 
       <div className="relative z-10">{children}</div>
 
-      <footer className="flex justify-between relative px-8 md:px-20 z-10 bottom-0">
+      <div className="absolute top-[920px] z-0 w-full h-[820px] lg:h-[620px]">
+        <img
+          src={gray}
+          alt="background"
+          className="w-full h-full"
+          style={{ userSelect: "none", pointerEvents: "none" }}
+        />
+      </div>
+
+      <div className="flex justify-center items-center px-20 lg:mt-10">
+        <div className="w-full h-[0px] border mt-20 border-black/10"></div>
+      </div>
+      <footer className="flex justify-between mt-10 relative px-8 pb-10 md:px-20 z-10 bottom-0">
         <p className="py-3">&copy; 2024 All rights reserved.</p>
         <div className="flex py-3 gap-2">
-            <p>Github</p>
-            <p>/</p>
-            <p>LinkedIn</p>
-            <p>/</p>
-            <p>TikTok</p>
+          <p>Github</p>
+          <p>/</p>
+          <p>LinkedIn</p>
+          <p>/</p>
+          <p>TikTok</p>
         </div>
       </footer>
     </div>
   );
 };
+      
