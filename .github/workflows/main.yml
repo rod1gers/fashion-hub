@@ -11,7 +11,7 @@ on:
       - development
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,6 +36,30 @@ jobs:
 
       - name: Build portfolio
         run: npm run build
+
+      - name: Run tests
+        run: npm test -- --watchAll=false
+
+  deploy: 
+    needs: build_and_test
+    runs-on: ubunt-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to production
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ github.ref == 'refs/heads/main' && secrets.NETLIFY_MAIN_SITE_ID || secrets.NETLIFY_STAGING_SITE_ID }}
+        with:
+          args: deploy --prod --dir=build
+
+
+
+
+  
 
 
 
