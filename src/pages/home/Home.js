@@ -7,6 +7,7 @@ import backendIcon from "./icons/backend.svg";
 import apiIcon from "./icons/api_8297510.png";
 import uiuxIcon from "./icons/ui ux.png";
 import handshake from './icons/handshake-FWPX82A9T3.svg';
+import { Link } from "react-router-dom";
 
 function Home() {
   const name = process.env.REACT_APP_MY_NAME;
@@ -33,12 +34,12 @@ function Home() {
             Crafting innovative software solutions with a passion for code and
             creativity.
           </p>
-          <a
-            href="#"
+          <Link
+            to="/projects"
             className="mt-8 inline-block px-10 py-5 text-white bg-black rounded-full hover:underline transition"
           >
             Projects
-          </a>
+          </Link>
         </div>
 
         <div className="mt-8 justify-start">{InfiniteScroll()}</div>
