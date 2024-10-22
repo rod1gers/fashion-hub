@@ -3,7 +3,9 @@
 import { ReactNode } from "react";
 import { Footer } from "../Footer";
 import FloatingNavbar from "../FloatingNavbar";
-import grayBackground from "./assets/projects-background.jpg";
+import homebg from '../../images/homebg.webp';
+import MobileNav from "../MobileNav";
+
 
 interface ProjectsLayoutProps {
   children: ReactNode;
@@ -14,28 +16,34 @@ const ProjectsLayout: React.FC<ProjectsLayoutProps> = ({ children }) => {
   const name = process.env.REACT_APP_MY_NAME;
 
   return (
-    <div className="flex flex-col justify-between">
-      <div className="absolute z-0 w-full">
-        <img
-          src={grayBackground}
-          alt="background"
-          className="max-h-[2960px] w-full"
-          style={{ userSelect: "none", pointerEvents: "none" }}
-        />
-      </div>
+    <div className="bg-black text-white flex flex-col justify-between overflow-x-hidden">
+      <div className="relative z-20">
+        <div className="absolute w-full h-[79%] lg:h-[81%]">
+          <img 
+            src={homebg}
+            className="h-full w-full rounded-b-3xl z-0"
+          />
+        </div>
 
-      <div className="z-20">
-        <div className="flex flex-col justify-between px-24 py-8">
-          <div className="flex justify-between">
+        <div className="flex z-10 flex-col justify-between px-3 md:px-24 py-5">
+
+          <div className="md:hidden">
+            <MobileNav 
+              className="w-8 h-8"
+            />
+          </div>
+
+
+          <div className="flex z-20 justify-between">
             <div>
-              <p className="font-montserrat font-bold text-xl py-2">{name}</p>
+              <p className="font-montserrat font-bold text-xl xs:text-[13px] sm:py-2">{name}</p>
             </div>
 
-            <div className="flex gap-10">
-              <div className="border border-gray-300 p-2 rounded-3xl">
+            <div className="md:flex hidden gap-10">
+              <div className="border border-gray-300 bg-dark_gray p-2 rounded-3xl">
                 {email}
               </div>
-              <div className="border border-gray-300 p-2 rounded-3xl">
+              <div className="border border-gray-300 bg-dark_gray p-2 rounded-3xl">
                 hit me up
               </div>
             </div>
@@ -43,7 +51,9 @@ const ProjectsLayout: React.FC<ProjectsLayoutProps> = ({ children }) => {
 
           <div>{children}</div>
 
-          <FloatingNavbar></FloatingNavbar>
+          <div className="hidden md:flex">
+            <FloatingNavbar></FloatingNavbar>
+          </div>
           <Footer></Footer>
         </div>
       </div>
