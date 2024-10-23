@@ -24,7 +24,7 @@ export default function Projects() {
             which I'm presenting here.
           </p>
         </div>
-        <div className="bg-gray-300 h-[0.5px] mt-3 w-[80%] lg:w-[85%] mx-auto"></div>
+        <div className="bg-gray-300 h-[0.5px] mt-3 w-[80%] lg:w-[55%] mx-auto"></div>
 
         <ProjectSection />
 

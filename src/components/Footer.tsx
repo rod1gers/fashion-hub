@@ -4,29 +4,14 @@ import { useEffect, useState } from "react";
 import githubIcon from "../icons/github-142-svgrepo-com.svg";
 import linkedInIcon from "../icons/linkedin-svgrepo-com.svg";
 import tiktokIcon from '../icons/tiktok-svgrepo-com.svg';
+import { checkIsMobile, setIsMobile } from "../redux/slices/screenSizeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import useScreenSize from "../hooks/useScreenSize";
 
 export function Footer() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const scrWidth = window.innerWidth;
-      if (scrWidth <= 550) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
-
+  useScreenSize();
+  const isMobile = useSelector(checkIsMobile);
+  
   return (
     <div>
       <div className="flex justify-center items-center px-20 lg:mt-10">

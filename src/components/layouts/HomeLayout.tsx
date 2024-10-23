@@ -16,7 +16,7 @@ export const HomeLayout = ({ children }: HomeLayoutProps) => {
 
   return (
     <div className="relative overflow-x-hidden bg-black text-white">
-      <div className="absolute w-full h-[750px] md:h-[780px]">
+      <div className="absolute w-full h-[750px] md:h-[850px]">
         <img 
           src={homebg}
           className="h-full md:h-[] w-full rounded-b-3xl"
@@ -27,13 +27,13 @@ export const HomeLayout = ({ children }: HomeLayoutProps) => {
       <header className="py-4 px-8 md:px-20 ">
         <div className="relative flex justify-between z-10">
           <div className="relative text-white flex gap-2 z-10">
-            <div className=" flex border border-gray-500 justify-center gap-2 rounded-3xl items-center p-1">
+            <div className=" flex border border-white/20 justify-center gap-2 rounded-3xl items-center p-1">
               <div className="p-2 hidden sm:flex">
                 <p className="font-montserrat text-xs">{email_address}</p>
               </div>
               <div className="bg-gradient-to-r from-zinc-950 to-gray-800 p-2 text-xs sm:text-sm rounded-3xl">Copy Email</div>
             </div>
-            <div className=" flex border border-gray-500 justify-center gap-2 rounded-3xl items-center p-1">
+            <div className=" flex border border-white/20 justify-center gap-2 rounded-3xl items-center p-1">
               <div className="bg-gradient-to-l from-zinc-950 to-gray-800 p-2 text-xs sm:text-sm rounded-3xl">
                 View Resume
               </div>

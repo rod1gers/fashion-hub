@@ -6,7 +6,7 @@ import Button from "../../../components/uiComponents/Button";
 
 const ProjectSection = () => {
   return (
-    <div className="mt-14 sm:mt-20 bg-gradient-to-r from-transparent border to-black px-3 py-14 pl-12 rounded-3xl">
+    <div className="mt-14 sm:mt-20 bg-gradient-to-r from-transparent border to-black px-3 py-14 pl-7 lg:pl-12 rounded-3xl">
       <div className="mb-16">
         <div className="flex gap-3 sm:gap-6 lg:gap-20 ">
           <p className="text-3xl sm:text-7xl">01</p>
@@ -79,7 +79,7 @@ const ProjectSection = () => {
               <div className="mt-4">
                 <Button
                   name={"Check Project"}
-                  url={""}
+                  url={"https://www.mutemwaphotography.com/"}
                   bgColor={"#000000"}
                   className={"bg-gradient-to-r from-black to-gray-800"}
                 />
@@ -110,7 +110,7 @@ const ProjectSection = () => {
               <div className="mt-4">
                 <Button
                   name={"Check Project"}
-                  url={""}
+                  url={"https://breezer-replica.netlify.app/"}
                   bgColor={"#000000"}
                   className={"bg-gradient-to-r from-black to-gray-800"}
                 />
@@ -154,7 +154,7 @@ const ProjectSection = () => {
             <div className="mt-2">
               <Button
                 name={"Check Project"}
-                url={""}
+                url={"https://doros.wedding/"}
                 bgColor="#000000"
                 className={"bg-gradient-to-r from-black to-gray-800"}
               />

@@ -10,25 +10,53 @@ import handshake from "./icons/handshake-FWPX82A9T3.svg";
 import { Link } from "react-router-dom";
 import Button from "../../components/uiComponents/Button.tsx";
 import MobileNav from "../../components/MobileNav.tsx";
+import heroImage from "../../images/Rodgers 2.webp";
+import { checkIsMobile } from "../../redux/slices/screenSizeSlice.ts";
+import { useSelector } from "react-redux";
+import githubIcon from "../../icons/github-142-svgrepo-com.svg";
+import linkedInIcon from "../../icons/linkedin-svgrepo-com.svg";
+import tiktokIcon from "../../icons/tiktok-svgrepo-com.svg";
+import useScreenSize from "../../hooks/useScreenSize.ts";
 
 function Home() {
   const name = process.env.REACT_APP_MY_NAME;
+  useScreenSize();
+  const mobile = useSelector(checkIsMobile);
 
   return (
     <HomeLayout>
       <div className="flex relative flex-col px-8 lg:px-20 mt-11 items-center justify-center">
-          
+        {mobile ? (
           <div className="flex absolute -top-[105px] z-100 gap-2">
             <MobileNav className="w-8 h-8" />
           </div>
+        ) : (
+          <div className="flex justify-end w-full relative">
+            <div className="flex absolute -top-[105px] py-3 gap-2">
+              <div className="w-5 h-5">
+                <img src={githubIcon} />
+              </div>
+              <p>/</p>
+              <div className="w-5 h-5">
+                <img src={linkedInIcon} />
+              </div>
+              <p>/</p>
+              <div className="w-5 h-5">
+                <img src={tiktokIcon} />
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="relative p-8 rounded-3xl text-center ">
           <div className="flex justify-center">
-            <img
-              src="profile.jpg"
-              alt="Profile Picture"
-              className="w-28 h-28 rounded-full border-2 border-gray-300"
-            />
+            <div className="relative rounded-full w-40 h-40 overflow-hidden">
+              <img
+                src={heroImage}
+                alt="Profile Picture"
+                className="absolute -top-8 border-2 border-gray-300"
+              />
+            </div>
           </div>
 
           <div className="absolute -rotate-12 top-[60px] md:top-[70px] md:right-7 -right-3  ">
@@ -47,7 +75,7 @@ function Home() {
               name="Projects"
               url="/projects"
               bgColor=""
-              className="bg-gradient-to-r from-zinc-950 to-gray-800 mt-10 px-12 py-5 text-white text-base rounded-full hover:underline transition"
+              className="bg-gradient-to-r from-zinc-950 to-gray-800 mt-10 px-14 border border-white/20 py-5 text-white text-base rounded-full hover:underline transition"
             />
           </div>
         </div>
