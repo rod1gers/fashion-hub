@@ -25,7 +25,7 @@ const ComingSoon = () => {
                 allowFullScreen
               ></iframe>
               <p className="mt-0 text-lg py-2 w-full bg-white/90 rounded-b-xl text-black font-semibold text-center">
-                Watch me build the OMNITalk chat feature!
+                Watch me develop the OMNITalk chat feature!
               </p>
             </div>
           </div>
