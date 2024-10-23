@@ -13,57 +13,57 @@ import mongodbIcon from "../icons/mongodb-icon-2.svg";
 export function InfiniteScroll() {
   return (
     <div>
-        <div className=' flex gap-16 md:gap-32 py-14 animate-infinite-scroll'>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+        <div className=' flex gap-16 md:gap-36 py-14 animate-infinite-scroll'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={javascriptIcon}
                 alt='javascript'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={nodeIcon}
                 alt='nodejs'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={cppIcon}
                 alt='cpp'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={gitIcon}
                 alt='git'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={awsIcon}
                 alt='aws'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={typescriptIcon}
                 alt='typescript'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={reactIcon}
                 alt='react'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={mongodbIcon}
                 alt='mongodb'
@@ -71,56 +71,56 @@ export function InfiniteScroll() {
               />
             </div>
             {/* {repeat icons} */}
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={javascriptIcon}
                 alt='javascript'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={nodeIcon}
                 alt='nodejs'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={cppIcon}
                 alt='cpp'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={gitIcon}
                 alt='git'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={awsIcon}
                 alt='aws'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={typescriptIcon}
                 alt='typescript'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={reactIcon}
                 alt='react'
                 className='w-full h-full'
               />
             </div>
-            <div className='w-14 h-14 md:w-24 md:h-24'>
+            <div className='w-14 h-14 md:w-20 md:h-20'>
               <img 
                 src={mongodbIcon}
                 alt='mongodb'

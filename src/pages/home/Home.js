@@ -10,25 +10,73 @@ import handshake from "./icons/handshake-FWPX82A9T3.svg";
 import { Link } from "react-router-dom";
 import Button from "../../components/uiComponents/Button.tsx";
 import MobileNav from "../../components/MobileNav.tsx";
+import heroImage from "../../images/Rodgers 2.webp";
+import { checkIsMobile } from "../../redux/slices/screenSizeSlice.ts";
+import { useSelector } from "react-redux";
+import githubIcon from "../../icons/github-142-svgrepo-com.svg";
+import linkedInIcon from "../../icons/linkedin-svgrepo-com.svg";
+import tiktokIcon from "../../icons/tiktok-svgrepo-com.svg";
+import useScreenSize from "../../hooks/useScreenSize.ts";
 
 function Home() {
   const name = process.env.REACT_APP_MY_NAME;
+  const email = process.env.REACT_APP_MY_EMAIL;
+  const tiktokLink = process.env.REACT_APP_TIKTOK_LINK;
+  const githubLink = process.env.REACT_APP_GITHUB_LINK;
+  const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK;
+  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
+  useScreenSize();
+  const mobile = useSelector(checkIsMobile);
 
   return (
     <HomeLayout>
       <div className="flex relative flex-col px-8 lg:px-20 mt-11 items-center justify-center">
-          
+        {mobile ? (
           <div className="flex absolute -top-[105px] z-100 gap-2">
             <MobileNav className="w-8 h-8" />
           </div>
+        ) : (
+          <div className="flex justify-end w-full relative">
+            <div className="flex absolute -top-[105px] py-3 gap-2">
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5"
+              >
+                <img src={githubIcon} alt="GitHub" />
+              </a>
+              <p>/</p>
+              <a
+                href={linkedinLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5"
+              >
+                <img src={linkedInIcon} alt="LinkedIn" />
+              </a>
+              <p>/</p>
+              <a
+                href={tiktokLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5"
+              >
+                <img src={tiktokIcon} alt="TikTok" />
+              </a>
+            </div>
+          </div>
+        )}
 
         <div className="relative p-8 rounded-3xl text-center ">
           <div className="flex justify-center">
-            <img
-              src="profile.jpg"
-              alt="Profile Picture"
-              className="w-28 h-28 rounded-full border-2 border-gray-300"
-            />
+            <div className="relative rounded-full w-40 h-40 overflow-hidden">
+              <img
+                src={heroImage}
+                alt="Profile Picture"
+                className="absolute -top-8 border-2 border-gray-300"
+              />
+            </div>
           </div>
 
           <div className="absolute -rotate-12 top-[60px] md:top-[70px] md:right-7 -right-3  ">
@@ -47,7 +95,7 @@ function Home() {
               name="Projects"
               url="/projects"
               bgColor=""
-              className="bg-gradient-to-r from-zinc-950 to-gray-800 mt-10 px-12 py-5 text-white text-base rounded-full hover:underline transition"
+              className="bg-gradient-to-r from-zinc-950 to-gray-800 mt-10 px-14 border border-white/20 py-5 text-white text-base rounded-full hover:underline transition"
             />
           </div>
         </div>
@@ -71,7 +119,7 @@ function Home() {
         </div>
 
         <div className="w-fit border border-white/20 mt-20 lg:mt-28 py-16 px-6 sm:p-16 lg:px-20 lg:py-28 rounded-3xl flex justify-center bg-gradient-to-l from-dark_gray to-transparent">
-          <div className="p-5 flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row  gap-20 lg:gap-20">
+          <div className="p-5 flex flex-col sm:grid sm:grid-cols-2 xl:flex xl:flex-row  gap-20 lg:gap-20">
             <div className="w-50 lg:w-60">
               <div className="w-16 h-16">
                 <img src={uiuxIcon} alt="uiux icon" className="w-full h-full" />
@@ -137,15 +185,19 @@ function Home() {
 
         <div className="flex gap-10">
           <div className="p-1 rounded-3xl bg-gray-200">
-            <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-              Email Me
-            </div>
+            <a href={`mailto:${email}`}>
+              <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
+                Email Me
+              </div>
+            </a>
           </div>
           <div>
             <div className="p-1 rounded-3xl bg-black border">
-              <div className="bg-white p-2 font-semibold text-black text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-                WhatsApp
-              </div>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <div className="bg-white p-2 font-semibold text-black text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
+                  WhatsApp
+                </div>
+              </a>
             </div>
           </div>
         </div>

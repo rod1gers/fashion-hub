@@ -9,6 +9,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './redux/store/store';
+import ComingSoon from './pages/comingSoon';
 
 const router = createBrowserRouter([
   {
@@ -25,12 +28,19 @@ const router = createBrowserRouter([
     path: "/resume",
     element: <Resume />,   
   },
+
+  {
+    path: "/comingSoon",
+    element: <ComingSoon />,   
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

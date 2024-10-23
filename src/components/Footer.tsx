@@ -3,29 +3,17 @@
 import { useEffect, useState } from "react";
 import githubIcon from "../icons/github-142-svgrepo-com.svg";
 import linkedInIcon from "../icons/linkedin-svgrepo-com.svg";
-import tiktokIcon from '../icons/tiktok-svgrepo-com.svg';
+import tiktokIcon from "../icons/tiktok-svgrepo-com.svg";
+import { checkIsMobile, setIsMobile } from "../redux/slices/screenSizeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import useScreenSize from "../hooks/useScreenSize";
 
 export function Footer() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const scrWidth = window.innerWidth;
-      if (scrWidth <= 550) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+  useScreenSize();
+  const isMobile = useSelector(checkIsMobile);
+  const tiktokLink = process.env.REACT_APP_TIKTOK_LINK;
+  const githubLink = process.env.REACT_APP_GITHUB_LINK;
+  const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK;
 
   return (
     <div>
@@ -37,25 +25,61 @@ export function Footer() {
 
         {!isMobile ? (
           <div className="flex py-3 gap-2">
-            <p>Github</p>
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline hover:cursor-pointer"
+            >
+              Github
+            </a>
             <p>/</p>
-            <p>LinkedIn</p>
+            <a
+              href={linkedinLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline hover:cursor-pointer"
+            >
+              LinkedIn
+            </a>
             <p>/</p>
-            <p>TikTok</p>
+            <a
+              href={tiktokLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline hover:cursor-pointer"
+            >
+              TikTok
+            </a>
           </div>
         ) : (
-          <div className="flex  py-3 gap-2">
-            <div className="w-5 h-5">
-            <img src={githubIcon} />
-            </div>
+          <div className="flex py-3 gap-2">
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-5 h-5  hover:cursor-pointer"
+            >
+              <img src={githubIcon} alt="GitHub" />
+            </a>
             <p>/</p>
-            <div className="w-5 h-5">
-            <img src={linkedInIcon} />
-            </div>
+            <a
+              href={linkedinLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-5 h-5  hover:cursor-pointer"
+            >
+              <img src={linkedInIcon} alt="LinkedIn" />
+            </a>
             <p>/</p>
-            <div className="w-5 h-5">
-            <img src={tiktokIcon} />
-            </div>
+            <a
+              href={tiktokLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-5 h-5  hover:cursor-pointer"
+            >
+              <img src={tiktokIcon} alt="TikTok" />
+            </a>
           </div>
         )}
       </footer>

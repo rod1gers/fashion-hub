@@ -15,6 +15,7 @@ module.exports = {
         'xs': '300px',
         '1.3xs': '400px',
         '1.6xs': '500px',
+        '0.3sm': '580px',
         'sm': '640px',
       },
       keyframes: {

@@ -3,6 +3,8 @@
 import React from "react";
 
 const FloatingNavbar: React.FC = () => {
+  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
+
   return (
     <nav className="fixed bottom-5 left-1/2 text-black transform -translate-x-1/2 bg-white/60 border border-black/90 rounded-lg shadow-lg p-4 z-50">
       <ul className="flex space-x-6">
@@ -21,10 +23,11 @@ const FloatingNavbar: React.FC = () => {
         </li>
         <li>
           <a
-            href="/resume"
+            href={whatsappUrl}
+            target="_blank"
             className="font-bold  transition"
           >
-            Resume
+            WhatsApp
           </a>
         </li>
         

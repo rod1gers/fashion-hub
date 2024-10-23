@@ -7,6 +7,7 @@ const Button: React.FC<IButton> = ({name, url, bgColor, className}) => {
     return (
         <Link
             to={url}
+            target="_blank"
             className={`flex rounded-2xl px-5 py-2 w-fit hover:cursor-pointer hover:underline ${className}`}
             style={{
                 backgroundColor: bgColor,
