@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setIsMobile } from '../redux/slices/screenSizeSlice'; // Adjust the path accordingly
+import { setIsMobile } from '../redux/slices/screenSizeSlice';
 
 const useScreenSize = () => {
   const dispatch = useDispatch();

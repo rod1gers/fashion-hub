@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from './redux/store/store';
+import ComingSoon from './pages/comingSoon';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/resume",
     element: <Resume />,   
+  },
+
+  {
+    path: "/comingSoon",
+    element: <ComingSoon />,   
   },
 ]);
 

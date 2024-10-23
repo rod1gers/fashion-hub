@@ -8,6 +8,7 @@ interface MobileNavProps {
 
 const MobileNav: React.FC<MobileNavProps> = ({className}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -51,9 +52,13 @@ const MobileNav: React.FC<MobileNavProps> = ({className}) => {
             </a>
           </li>
           <li>
-            <a href="/resume" className="font-bold transition">
-              Resume
-            </a>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            className="font-bold  transition"
+          >
+            WhatsApp
+          </a>
           </li>
         </ul>
       </nav>

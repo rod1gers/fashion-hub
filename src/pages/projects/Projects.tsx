@@ -9,11 +9,15 @@ import BlackButton from "../../components/uiComponents/Button";
 import ProjectSection from "./components/ProjectSection";
 
 export default function Projects() {
+  const email = process.env.REACT_APP_MY_EMAIL;
+  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
+
+
   return (
     <ProjectsLayout>
       <div className="relative z-30 pt-8 sm:pt-14 md:pt-0">
         <div className="flex justify-center mb-4">
-          <p className="font-bold px-3 text-[42px] md:text-[88px] text-white/95 lg:text-[210px] whitespace-nowrap">
+          <p className="font-bold px-3 text-[42px] sm:text-[88px] lg:text-[100px] text-white/95 xl:text-[210px] whitespace-nowrap">
             MY PROJECTS
           </p>
         </div>
@@ -44,15 +48,19 @@ export default function Projects() {
 
         <div className="flex gap-10 justify-center">
           <div className="p-1 rounded-3xl bg-gray-200">
-            <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-              Email Me
-            </div>
+          <a href={`mailto:${email}`}>
+              <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
+                Email Me
+              </div>
+            </a>
           </div>
           <div>
             <div className="p-1 border rounded-3xl bg-black">
-              <div className="bg-white p-2 text-sm font-semibold text-black rounded-3xl hover:cursor-pointer hover:underline transition">
-                WhatsApp
-              </div>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <div className="bg-white p-2 font-semibold text-black text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
+                  WhatsApp
+                </div>
+              </a>
             </div>
           </div>
         </div>

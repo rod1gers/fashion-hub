@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import gray from "./assets/gray-background.jpg";
 import { Footer } from "../Footer";
 import Button from "../uiComponents/Button";
@@ -12,7 +12,26 @@ interface HomeLayoutProps {
 }
 
 export const HomeLayout = ({ children }: HomeLayoutProps) => {
-  const email_address = process.env.REACT_APP_EMAIL_ADDRESS;
+  const email_address = process.env.REACT_APP_EMAIL_ADDRESS as string;
+  const [buttonText, setButtonText] = useState("Copy Email");
+  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
+
+
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(email_address)
+      .then(() => {
+        setButtonText("Copied");
+        console.log("Email copied to clipboard!");
+
+        setTimeout(() => {
+          setButtonText("Copy Email");
+        }, 1000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
 
   return (
     <div className="relative overflow-x-hidden bg-black text-white">
@@ -23,7 +42,6 @@ export const HomeLayout = ({ children }: HomeLayoutProps) => {
         />
       </div>
       
-
       <header className="py-4 px-8 md:px-20 ">
         <div className="relative flex justify-between z-10">
           <div className="relative text-white flex gap-2 z-10">
@@ -31,12 +49,19 @@ export const HomeLayout = ({ children }: HomeLayoutProps) => {
               <div className="p-2 hidden sm:flex">
                 <p className="font-montserrat text-xs">{email_address}</p>
               </div>
-              <div className="bg-gradient-to-r from-zinc-950 to-gray-800 p-2 text-xs sm:text-sm rounded-3xl">Copy Email</div>
+              <div
+                  onClick={copyToClipboard}
+                  className="bg-gradient-to-r hover:cursor-pointer from-zinc-950 to-gray-800 border border-white/15 p-2 text-xs sm:text-sm rounded-3xl"
+                >
+                  {buttonText}
+                </div>
             </div>
             <div className=" flex border border-white/20 justify-center gap-2 rounded-3xl items-center p-1">
-              <div className="bg-gradient-to-l from-zinc-950 to-gray-800 p-2 text-xs sm:text-sm rounded-3xl">
-                View Resume
-              </div>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <div className="bg-gradient-to-l hover:cursor-pointer from-zinc-950 to-gray-800 p-2 text-xs sm:text-sm rounded-3xl">
+                  WhatsApp
+                </div>
+              </a>
             </div>
           </div>
 

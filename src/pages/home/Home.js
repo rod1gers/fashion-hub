@@ -20,6 +20,11 @@ import useScreenSize from "../../hooks/useScreenSize.ts";
 
 function Home() {
   const name = process.env.REACT_APP_MY_NAME;
+  const email = process.env.REACT_APP_MY_EMAIL;
+  const tiktokLink = process.env.REACT_APP_TIKTOK_LINK;
+  const githubLink = process.env.REACT_APP_GITHUB_LINK;
+  const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK;
+  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
   useScreenSize();
   const mobile = useSelector(checkIsMobile);
 
@@ -33,17 +38,32 @@ function Home() {
         ) : (
           <div className="flex justify-end w-full relative">
             <div className="flex absolute -top-[105px] py-3 gap-2">
-              <div className="w-5 h-5">
-                <img src={githubIcon} />
-              </div>
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5"
+              >
+                <img src={githubIcon} alt="GitHub" />
+              </a>
               <p>/</p>
-              <div className="w-5 h-5">
-                <img src={linkedInIcon} />
-              </div>
+              <a
+                href={linkedinLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5"
+              >
+                <img src={linkedInIcon} alt="LinkedIn" />
+              </a>
               <p>/</p>
-              <div className="w-5 h-5">
-                <img src={tiktokIcon} />
-              </div>
+              <a
+                href={tiktokLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5"
+              >
+                <img src={tiktokIcon} alt="TikTok" />
+              </a>
             </div>
           </div>
         )}
@@ -99,7 +119,7 @@ function Home() {
         </div>
 
         <div className="w-fit border border-white/20 mt-20 lg:mt-28 py-16 px-6 sm:p-16 lg:px-20 lg:py-28 rounded-3xl flex justify-center bg-gradient-to-l from-dark_gray to-transparent">
-          <div className="p-5 flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row  gap-20 lg:gap-20">
+          <div className="p-5 flex flex-col sm:grid sm:grid-cols-2 xl:flex xl:flex-row  gap-20 lg:gap-20">
             <div className="w-50 lg:w-60">
               <div className="w-16 h-16">
                 <img src={uiuxIcon} alt="uiux icon" className="w-full h-full" />
@@ -165,15 +185,19 @@ function Home() {
 
         <div className="flex gap-10">
           <div className="p-1 rounded-3xl bg-gray-200">
-            <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-              Email Me
-            </div>
+            <a href={`mailto:${email}`}>
+              <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
+                Email Me
+              </div>
+            </a>
           </div>
           <div>
             <div className="p-1 rounded-3xl bg-black border">
-              <div className="bg-white p-2 font-semibold text-black text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-                WhatsApp
-              </div>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <div className="bg-white p-2 font-semibold text-black text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
+                  WhatsApp
+                </div>
+              </a>
             </div>
           </div>
         </div>
