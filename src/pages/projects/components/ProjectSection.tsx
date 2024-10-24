@@ -35,7 +35,9 @@ const ProjectSection = () => {
             <div className="pr-11">
               <div className="text-sm">
                 <p>
-                  A mobile app for service providers with messaging feature.
+                  A mobile app that connects clients with reliable service
+                  providers, offering a seamless platform for discovering,
+                  booking, and managing services.{" "}
                 </p>
               </div>
             </div>
@@ -43,7 +45,8 @@ const ProjectSection = () => {
             <div className="mt-4">
               <Button
                 name={"Check Project"}
-                url={'/comingSoon'}
+                target="_self"
+                url={"/comingSoon"}
                 bgColor={"#000000"}
                 className={"bg-gradient-to-r from-black to-gray-800"}
               />
@@ -95,6 +98,7 @@ const ProjectSection = () => {
               </div>
               <div className="mt-4">
                 <Button
+                  target="_blank"
                   name={"Check Project"}
                   url={"https://www.mutemwaphotography.com/"}
                   bgColor={"#000000"}
@@ -133,6 +137,7 @@ const ProjectSection = () => {
               <div className="mt-4">
                 <Button
                   name={"Check Project"}
+                  target="_blank"
                   url={"https://breezer-replica.netlify.app/"}
                   bgColor={"#000000"}
                   className={"bg-gradient-to-r from-black to-gray-800"}
@@ -177,12 +182,16 @@ const ProjectSection = () => {
             </div>
             <div>
               <p className="text-sm">
-                A mobile app for service providers with messaging feature.
+                A comprehensive wedding planning platform that guides couples
+                through every step of their wedding journey, from onboarding to
+                the final. Includes tools for budgeting, vendor management,
+                guest coordination, and scheduling.{" "}
               </p>
             </div>
             <div className="mt-2">
               <Button
                 name={"Check Project"}
+                target="_blank"
                 url={"https://cool-staging.doros.wedding/"}
                 bgColor="#000000"
                 className={"bg-gradient-to-r from-black to-gray-800"}

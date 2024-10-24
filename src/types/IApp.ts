@@ -7,4 +7,5 @@ export interface IButton {
     url: string;
     className: string; 
     bgColor: string;
+    target: string;
 }
