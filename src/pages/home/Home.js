@@ -94,6 +94,7 @@ function Home() {
             <Button
               name="Projects"
               url="/projects"
+              target='_self'
               bgColor=""
               className="bg-gradient-to-r from-zinc-950 to-gray-800 mt-10 px-14 border border-white/20 py-5 text-white text-base rounded-full hover:underline transition"
             />
@@ -185,7 +186,9 @@ function Home() {
 
         <div className="flex gap-10">
           <div className="p-1 rounded-3xl bg-gray-200">
-            <a href={`mailto:${email}`}>
+            <a 
+              href={`mailto:${email}`}
+            >
               <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
                 Email Me
               </div>
