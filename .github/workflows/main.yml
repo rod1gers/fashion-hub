@@ -42,7 +42,7 @@ jobs:
 
   deploy: 
     needs: build_and_test
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
