@@ -1,10 +1,7 @@
 /** @format */
 
 import React, { ReactNode, useState } from "react";
-import gray from "./assets/gray-background.jpg";
 import { Footer } from "../Footer";
-import Button from "../uiComponents/Button";
-import MobileNav from "../MobileNav";
 import homebg from '../../images/homebg.webp';
 
 interface HomeLayoutProps {
@@ -38,6 +35,7 @@ export const HomeLayout = ({ children }: HomeLayoutProps) => {
       <div className="absolute w-full h-[750px] md:h-[850px]">
         <img 
           src={homebg}
+          alt="home background"
           className="h-full md:h-[] w-full rounded-b-3xl"
         />
       </div>
