@@ -113,7 +113,7 @@ const FashionHubLanding = () => {
               Follow on TikTok
             </a>
             <a 
-              href="https://wa.me/0705392489" 
+              href="https://wa.me/254705392489" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-white rounded-full text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-center"
@@ -177,7 +177,7 @@ const FashionHubLanding = () => {
                       hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                     }`}>
                       <a 
-                        href="https://wa.me/0705392489" 
+                        href="https://wa.me/254705392489" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="px-8 py-4 border-2 border-white rounded-full text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-center"
