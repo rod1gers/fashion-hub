@@ -215,7 +215,7 @@ const FashionHubLanding = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=800&fit=crop"
+                src="./images/Ropa En Perchero.jpeg"
                 alt="Fashion Designer"
                 className="rounded-2xl shadow-2xl"
               />
