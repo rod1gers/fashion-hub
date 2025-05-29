@@ -208,8 +208,9 @@ const FashionHubLanding = () => {
                 We believe that clothing should be more than just fabric – it should be an extension of your personality.
               </p>
               <p className="text-lg text-gray-400 mb-8">
-                Our team of designers travels the world seeking inspiration from diverse cultures, 
-                translating these experiences into collections that are both timeless and contemporary.
+                We are proud to offer countrywide delivery of our premium clothing collection across all regions of Kenya. 
+                Whether you're located in Nairobi, Mombasa, Kisumu, Eldoret, Nakuru, or any other town or city throughout 
+                the country, we ensure that our high-quality clothes reach you safely and promptly.
               </p>
               
             </div>
