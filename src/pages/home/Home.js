@@ -20,10 +20,9 @@ const FashionHubLanding = () => {
   }, []);
 
   const heroImages = [
-    './images/3.jpeg',
-    './images/4.jpeg',
-    './images/6.jpeg',
-    './images/7.jpeg',
+    './images/3.webp',
+    './images/6.webp',
+    './images/7.webp',
   ];
 
   const collections = [
@@ -36,19 +35,19 @@ const FashionHubLanding = () => {
     {
       id: 2,
       title: 'Elegant Evening',
-      image: './images/3.jpeg',
+      image: './images/3.webp',
       category: 'Formal'
     },
     {
       id: 3,
       title: 'Summer Vibes',
-      image: './images/8.jpeg',
+      image: './images/8.webp',
       category: 'Seasonal'
     },
     {
       id: 4,
       title: 'Shoes',
-      image: './images/9.jpeg',
+      image: './images/9.webp',
       category: 'Kicks'
     }
   ];
