@@ -1,212 +1,243 @@
-/** @format */
+import React, { useState, useEffect } from 'react';
+import { ChevronDown, Instagram, Twitter, Mail, Phone, MapPin, Star, ShoppingBag, Heart } from 'lucide-react';
 
-import { HomeLayout } from "../../components/layouts/HomeLayout.tsx";
-import { InfiniteScroll } from "./components/infiniteScroll.tsx";
-import appIcon from "./icons/app-development-icon.svg";
-import backendIcon from "./icons/backend.svg";
-import apiIcon from "../../icons/api-svgrepo-com.svg";
-import uiuxIcon from "../../icons/frontend icon.svg";
-import handshake from "./icons/handshake-FWPX82A9T3.svg";
-import { Link } from "react-router-dom";
-import Button from "../../components/uiComponents/Button.tsx";
-import MobileNav from "../../components/MobileNav.tsx";
-import heroImage from "../../images/Rodgers 2.webp";
-import { checkIsMobile } from "../../redux/slices/screenSizeSlice.ts";
-import { useSelector } from "react-redux";
-import githubIcon from "../../icons/github-142-svgrepo-com.svg";
-import linkedInIcon from "../../icons/linkedin-svgrepo-com.svg";
-import tiktokIcon from "../../icons/tiktok-svgrepo-com.svg";
-import useScreenSize from "../../hooks/useScreenSize.ts";
+const FashionHubLanding = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const [activeImage, setActiveImage] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-function Home() {
-  const name = process.env.REACT_APP_MY_NAME;
-  const email = process.env.REACT_APP_MY_EMAIL;
-  const tiktokLink = process.env.REACT_APP_TIKTOK_LINK;
-  const githubLink = process.env.REACT_APP_GITHUB_LINK;
-  const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK;
-  const whatsappUrl = process.env.REACT_APP_WHATSAPP;
-  useScreenSize();
-  const mobile = useSelector(checkIsMobile);
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % 4);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const heroImages = [
+    './images/3.jpeg',
+    './images/4.jpeg',
+    './images/6.jpeg',
+    './images/7.jpeg',
+  ];
+
+  const collections = [
+    {
+      id: 1,
+      title: 'Urban Streetwear',
+      image: './images/image.png',
+      category: 'Casual'
+    },
+    {
+      id: 2,
+      title: 'Elegant Evening',
+      image: './images/3.jpeg',
+      category: 'Formal'
+    },
+    {
+      id: 3,
+      title: 'Summer Vibes',
+      image: './images/8.jpeg',
+      category: 'Seasonal'
+    },
+    {
+      id: 4,
+      title: 'Shoes',
+      image: './images/9.jpeg',
+      category: 'Kicks'
+    }
+  ];
 
   return (
-    <HomeLayout>
-      <div className="flex relative flex-col px-8 lg:px-20 mt-11 items-center justify-center">
-        {mobile ? (
-          <div className="flex absolute -top-[105px] z-100 gap-2">
-            <MobileNav className="w-8 h-8" />
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+            Fashion Hub Collections
           </div>
-        ) : (
-          <div className="flex justify-end w-full relative">
-            <div className="flex absolute -top-[105px] py-3 gap-2">
-              <a
-                href={githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-5 h-5"
-              >
-                <img src={githubIcon} alt="GitHub" />
-              </a>
-              <p>/</p>
-              <a
-                href={linkedinLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-5 h-5"
-              >
-                <img src={linkedInIcon} alt="LinkedIn" />
-              </a>
-              <p>/</p>
-              <a
-                href={tiktokLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-5 h-5"
-              >
-                <img src={tiktokIcon} alt="TikTok" />
-              </a>
-            </div>
+          <div className="hidden md:flex space-x-8">
+            <a href="#home" className="hover:text-pink-400 transition-colors">Home</a>
+            <a href="#collections" className="hover:text-pink-400 transition-colors">Collections</a>
+            <a href="#about" className="hover:text-pink-400 transition-colors">About</a>
           </div>
-        )}
+          <ShoppingBag className="w-6 h-6 hover:text-pink-400 transition-colors cursor-pointer" />
+        </div>
+      </nav>
 
-        <div className="relative p-8 rounded-3xl text-center ">
-          <div className="flex justify-center">
-            <div className="relative rounded-full w-40 h-40 overflow-hidden">
-              <img
-                src={heroImage}
-                alt="Profile Picture"
-                className="absolute -top-8 border-2 border-gray-300"
-              />
-            </div>
-          </div>
-
-          <div className="absolute -rotate-12 top-[60px] md:top-[70px] md:right-7 -right-3  ">
-            <div className="bg-white w-fit px-3 py-2 rounded-2xl up-down-animation z-30">
-              <h2 className="text-sm text-black font-medium">{name} 👋🏼</h2>
-            </div>
-          </div>
-
-          <p className="mt-10 sm:mt-6 tracking-wide font-montserrat text-2xl md:text-4xl font-semibold w-72 md:w-96 small-caps">
-            Crafting innovative software solutions with a passion for code and
-            creativity.
-          </p>
-
-          <div className="flex justify-center">
-            <Button
-              name="Projects"
-              url="/projects"
-              target='_self'
-              bgColor=""
-              className="bg-gradient-to-r from-zinc-950 to-gray-800 mt-10 px-14 border border-white/20 py-5 text-white text-base rounded-full hover:underline transition"
+      {/* Hero Section */}
+      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-purple-900/20 to-black z-10"></div>
+        
+        {/* Background Images Slider */}
+        <div className="absolute inset-0">
+          {heroImages.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === activeImage ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                backgroundImage: `url(${img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                transform: `scale(${1 + scrollY * 0.0005})`,
+              }}
             />
-          </div>
+          ))}
         </div>
 
-        <div className="justify-start">{InfiniteScroll()}</div>
-
-        <div className="mt-28 flex flex-col justify-center items-center">
-          <div className="w-[300px] sm:w-fit">
-            <p className="font-montserrat font-semibold md:text-3xl md:w-96 small-caps text-center">
-              Let’s collaborate and leverage my skills for your next project
-            </p>
-          </div>
-          <div className="relative flex flex-col justify-center items-center">
-            <div className="w-[600px] h-[1px] mt-20 bg-white/20"></div>
-            <div className="absolute top-16 px-[40px] py-[14px] origin-top-left rotate-[-10deg] bg-white rounded-[30px] justify-center items-center inline-flex">
-              <div className="text-black text-base font-semibold font-montserrat">
-                Services
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-fit border border-white/20 mt-20 lg:mt-28 py-16 px-6 sm:p-16 lg:px-20 lg:py-28 rounded-3xl flex justify-center bg-gradient-to-l from-dark_gray to-transparent">
-          <div className="p-5 flex flex-col sm:grid sm:grid-cols-2 xl:flex xl:flex-row  gap-20 lg:gap-20">
-            <div className="w-50 lg:w-60">
-              <div className="w-16 h-16">
-                <img src={uiuxIcon} alt="uiux icon" className="w-full h-full" />
-              </div>
-              <p className="font-bold mb-4 mt-1 text-lg">
-                Frontend Development
-              </p>
-              <p className="text-[12px] tracking-wider sm:text-sm">
-                Designing intuitive and visually engaging interfaces that
-                deliver seamless user experiences across all platforms.
-              </p>
-            </div>
-
-            <div className="w-50 lg:w-60">
-              <div className="w-16 h-16">
-                <img
-                  src={backendIcon}
-                  alt="backend icon"
-                  className="w-full h-full"
-                />
-              </div>
-              <p className="font-bold mb-4 mt-1 text-lg">Backend Development</p>
-              <p className="text-[12px] tracking-wider sm:text-sm">
-                Bringing powerful backend systems to life, ensuring seamless
-                functionality and scalability.
-              </p>
-            </div>
-
-            <div className="w-50 lg:w-60">
-              <div className="w-16 h-16">
-                <img src={appIcon} alt="app icon" className="w-full h-full" />
-              </div>
-              <p className="font-bold mb-4 mt-1 text-lg">Web & Mobile App</p>
-              <p className="text-[12px] tracking-wider sm:text-sm">
-                Turning concepts into outstanding web and mobile app solutions.
-              </p>
-            </div>
-
-            <div className="w-50 lg:w-60">
-              <div className="w-16 h-16">
-                <img src={apiIcon} alt="api icon" className="w-full h-full" />
-              </div>
-              <p className="font-bold mb-4 mt-1 text-lg">API Development</p>
-              <p className="sm:text-sm text-[12px] tracking-wider">
-                Crafting robust APIs that drive seamless communication between
-                systems and power efficient integrations
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col justify-center items-center mt-10 md:mt-32 lg:mt-32 mb-10">
-          <div className="h-32 w-32">
-            <img src={handshake} alt="handshake icon" className="" />
-          </div>
-
-          <div>
-            <p className="font-bold text-xl sm:text-3xl text-center">
-              Tell me about your next <br /> project
-            </p>
-          </div>
-        </div>
-
-        <div className="flex gap-10">
-          <div className="p-1 rounded-3xl bg-gray-200">
+        {/* Hero Content */}
+        <div className="relative z-20 text-center max-w-4xl mx-auto px-6">
+          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
+              FASHION
+            </span>
+            <br />
+            <span className="text-white">REDEFINED</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto">
+            Discover extraordinary pieces that speak to your unique style. Where innovation meets elegance.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href={`mailto:${email}`}
+              href="https://www.tiktok.com/@fashionhubcollections" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full text-white font-semibold hover:shadow-2xl hover:shadow-pink-500/25 transform hover:scale-105 transition-all duration-300 text-center"
             >
-              <div className="bg-black text-white p-2 text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-                Email Me
-              </div>
+              Follow on TikTok
+            </a>
+            <a 
+              href="https://wa.me/0705392489" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-white rounded-full text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-center"
+            >
+              Chat on WhatsApp
             </a>
           </div>
-          <div>
-            <div className="p-1 rounded-3xl bg-black border">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <div className="bg-white p-2 font-semibold text-black text-sm rounded-3xl hover:cursor-pointer hover:underline transition">
-                  WhatsApp
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <ChevronDown className="w-8 h-8 animate-bounce text-white/60" />
+        </div>
+      </section>
+
+      {/* Collections Section */}
+      <section id="collections" className="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-pink-400 to-violet-400 bg-clip-text text-transparent">
+                Our Collections
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Curated pieces that define modern fashion. Each collection tells a unique story.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {collections.map((item, index) => (
+              <div
+                key={item.id}
+                className="group relative overflow-hidden rounded-2xl cursor-pointer"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="aspect-[3/4] relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-sm font-medium">
+                    {item.category}
+                  </div>
+
+                  {/* Heart Icon */}
+                  <div className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Heart className="w-5 h-5" />
+                  </div>
+
+                  {/* Content Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-pink-400 font-semibold text-lg">{item.price}</p>
+                    <div className={`mt-4 transform transition-all duration-300 ${
+                      hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}>
+                      <a 
+                        href="https://wa.me/0705392489" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-8 py-4 border-2 border-white rounded-full text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-center"
+                      >
+                        Order Via WhatsApp
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-5xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-pink-400 to-violet-400 bg-clip-text text-transparent">
+                  About Us
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                Fashion Hub Collections was born from a passion for exceptional design and sustainable fashion. 
+                We believe that clothing should be more than just fabric – it should be an extension of your personality.
+              </p>
+              <p className="text-lg text-gray-400 mb-8">
+                Our team of designers travels the world seeking inspiration from diverse cultures, 
+                translating these experiences into collections that are both timeless and contemporary.
+              </p>
+              
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=800&fit=crop"
+                alt="Fashion Designer"
+                className="rounded-2xl shadow-2xl"
+              />
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full opacity-20 blur-2xl"></div>
+              <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full opacity-20 blur-2xl"></div>
             </div>
           </div>
         </div>
-      </div>
-    </HomeLayout>
-  );
-}
+      </section>
 
-export default Home;
+      {/* Footer */}
+      <footer className="py-8 bg-gray-900 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+            Fashion Hub Collections
+          </div>
+          <p className="text-gray-400">© {new Date().getFullYear()} Fashion Hub Collections. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default FashionHubLanding;

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './pages/home/Home';
-import Projects from './pages/projects/Projects';
-import Resume from './pages/resume/Resume';
 import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -11,7 +9,6 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from './redux/store/store';
-import ComingSoon from './pages/comingSoon';
 
 const router = createBrowserRouter([
   {
@@ -19,20 +16,6 @@ const router = createBrowserRouter([
     element: <Home />,   
   },
 
-  {
-    path: "/projects",
-    element: <Projects />,   
-  },
-
-  {
-    path: "/resume",
-    element: <Resume />,   
-  },
-
-  {
-    path: "/comingSoon",
-    element: <ComingSoon />,   
-  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
